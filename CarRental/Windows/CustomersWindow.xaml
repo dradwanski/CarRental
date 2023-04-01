@@ -1,0 +1,42 @@
+﻿<Window x:Class="CarRental.Windows.CustomersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental.Windows"
+        mc:Ignorable="d"
+        Title="CustomersWindow" Height="450" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Margin="0,0,0,360" Background="SteelBlue">
+            <TextBlock Height="54" TextWrapping="Wrap" Width="798" FontSize="36" TextAlignment="Center" Foreground="White"><Run Text="CAR RENTAL MANAGEMENT"/></TextBlock>
+        </StackPanel>
+        <Button Click="Add_Customer_Click" Content="ADD" Margin="33,310,865,67" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White"/>
+        <Button Click="Edit_Customer_Click" Content="EDIT" Margin="154,310,737,67" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White"/>
+        <Button Click="Delete_Customer_Click" Content="DELETE" Margin="282,310,608,67" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White" RenderTransformOrigin="0.839,0.519"/>
+        <Button Click="Back_Click" Content="BACK" Margin="85,355,808,20" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White"/>
+        <Button Click="Clear_Click" Content="CLEAR" Margin="208,355,682,20" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White" />
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="16,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue"><Run Language="pl-pl" Text="Name"/></TextBlock>
+        <TextBox Name ="Cname" HorizontalAlignment="Left" Height="30" Margin="154,110,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="204" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="16,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue"><Run Language="pl-pl" Text="LastName"/></TextBlock>
+        <TextBox Name ="CLastName" HorizontalAlignment="Left" Height="30" Margin="154,153,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="204" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="16,20,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="138" FontSize="22" Foreground="SteelBlue"><Run Language="pl-pl" Text="Address"/></TextBlock>
+        <TextBox Name ="CAddress" HorizontalAlignment="Left" Height="30" Margin="154,196,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="204" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="16,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue"><Run Text="P"/><Run Language="pl-pl" Text="hone"/></TextBlock>
+        <TextBox Name ="CPhone" HorizontalAlignment="Left" Height="30" Margin="154,241,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="204" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="572,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontSize="22" Foreground="SteelBlue"><Run Language="pl-pl" Text="Customer"/><Run Text="s List"/></TextBlock>
+        <StackPanel Margin="0,414,0,0" Background="SteelBlue"/>
+
+        <ListView SelectionChanged="CustomerDGV_SelectionChanged" Name="ListOfCustomers" Height="302" Margin="400,90,54,0" VerticalAlignment="Top" >
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="30" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="LastName" Width="100" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Address" Width="175" DisplayMemberBinding="{Binding Address}"/>
+                    <GridViewColumn Header="Phone" Width="100" DisplayMemberBinding="{Binding Phone}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

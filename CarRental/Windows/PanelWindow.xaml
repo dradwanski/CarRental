@@ -1,0 +1,22 @@
+﻿<Window x:Class="CarRental.PanelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental"
+        mc:Ignorable="d"
+        Title="PanelWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Margin="0,0,0,360" Background="SteelBlue">
+            <TextBlock Height="54" TextWrapping="Wrap" Width="798" FontSize="36" TextAlignment="Center" Foreground="White"><Run Text="CAR RENTAL MANAGEMENT"/></TextBlock>
+        </StackPanel>
+        <StackPanel Margin="0,414,0,0" Background="SteelBlue"/>
+        <Image HorizontalAlignment="Center" Height="239" Margin="0,170,0,0" VerticalAlignment="Top" Width="410" Source="/Windows/logo.png"/>
+        <Button Click="Cars_click" Content="Cars" Margin="100,70,580,280" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White"/>
+        <Button Click="Customers_click" Content="Customers" Margin="260,70,420,280" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White"/>
+        <Button Click="Rentals_click" Content="Rentals" Margin="420,70,260,280" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White"/>
+        <Button Click="Users_click" Content="Users" Margin="580,70,100,280" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White"/>
+        <Button Click="Logout_click" Content="Logout" Margin="650,310,30,35" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White"/>
+        <Image HorizontalAlignment="Left" Height="235" Margin="176,175,0,0" VerticalAlignment="Top" Width="412" Source="/Windows/img/logo.png"/>
+    </Grid>
+</Window>

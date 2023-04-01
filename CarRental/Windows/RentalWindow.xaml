@@ -1,0 +1,50 @@
+﻿<Window x:Class="CarRental.Windows.RentalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental.Windows"
+        mc:Ignorable="d"
+        Title="RentalWindow" Height="600" Width="1200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="109*"/>
+            <RowDefinition Height="475*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="0,0,0,45" Background="SteelBlue">
+            <TextBlock Height="54" TextWrapping="Wrap" Width="798" FontSize="36" TextAlignment="Center" Foreground="White" Text="CAR RENTAL MANAGEMENT"/>
+        </StackPanel>
+        <Button Click="Add_Rental_Click" Content="ADD" Margin="38,281,1061,131" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White" Grid.Row="1"/>
+        <Button Click="Edit_Rental_Click" Content="EDIT" Margin="144,281,957,131" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White" Grid.Row="1"/>
+        <Button Click="Delete_Rental_Click" Content="DELETE" Margin="248,281,850,131" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White" RenderTransformOrigin="0.839,0.519" Grid.Row="1"/>
+        <Button Click="Back_Click" Content="BACK" Margin="88,343,1012,69" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White" Grid.Row="1"/>
+        <Button Click="Clear_Click" Content="CLEAR" Margin="197,343,901,69" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White" Grid.Row="1" />
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="26,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue" Grid.Row="1"><Run Language="pl-pl" Text="Registration"/></TextBlock>
+        <ComboBox Name ="CarRegistration" HorizontalAlignment="Left" Height="30" Margin="164,29,0,0"  VerticalAlignment="Top" Width="204" FontSize="16" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="26,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue" Grid.Row="1"><Run Language="pl-pl" Text="CustomerId"/></TextBlock>
+        <ComboBox Name ="CustomerId" HorizontalAlignment="Left" Height="30" Margin="164,73,0,0" VerticalAlignment="Top" Width="204" FontSize="16" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="26,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue" Grid.Row="1"><Run Language="pl-pl" Text="Rental Date"/></TextBlock>
+        <DatePicker SelectedDateChanged="Date_SelectedDateChanged" Name ="RentalDate" HorizontalAlignment="Left" Height="30" Margin="164,117,0,0"  VerticalAlignment="Top" Width="204" FontSize="16" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="704,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue" RenderTransformOrigin="0.532,0.133"><Run Language="pl-pl" Text="Rental "/><Run Text="List"/></TextBlock>
+        <StackPanel Margin="0,455,0,0" Background="SteelBlue" Grid.Row="1"/>
+        <TextBlock  HorizontalAlignment="Left" Height="38" Margin="26,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue" Grid.Row="1"><Run Language="pl-pl" Text="Return Date"/></TextBlock>
+        <DatePicker SelectedDateChanged="Date_SelectedDateChanged" x:Name ="ReturnDate" HorizontalAlignment="Left" Height="30" Margin="164,159,0,0" VerticalAlignment="Top" Width="204" FontSize="16" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="26,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue" Grid.Row="1"><Run Language="pl-pl" Text="Fees"/></TextBlock>
+        <TextBlock x:Name ="Fees" HorizontalAlignment="Left" Height="30" Margin="164,203,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="204" FontSize="16" Grid.Row="1"/>
+        <StackPanel Margin="0,436,0,0" Background="SteelBlue" Grid.Row="1"/>
+
+        <ListView SelectionChanged="RentalDGV_SelectionChanged" Name="ListOfRentals" Height="437" Margin="400,90,54,0" VerticalAlignment="Top" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="2" >
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="CarRegistration" Width="150" DisplayMemberBinding="{Binding CarRegistration}"/>
+                    <GridViewColumn Header="CustomerId" Width="0" DisplayMemberBinding="{Binding CustomerId}"/>
+                    <GridViewColumn Header="CustomerName" Width="150" DisplayMemberBinding="{Binding CustomerName}"/>
+                    <GridViewColumn Header="RentalDate" Width="150" DisplayMemberBinding="{Binding date}"/>
+                    <GridViewColumn Header="ReturnDate" Width="150" DisplayMemberBinding="{Binding date2}"/>
+                    <GridViewColumn Header="Fees" Width="100" DisplayMemberBinding="{Binding Fees}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
