@@ -64,7 +64,7 @@ namespace CarRental.Windows
             var isPriceParsed = int.TryParse(Price.Text, out int price);
             if (price < 0 || !isPriceParsed)
             {
-                MessageBox.Show("To low price");
+                MessageBox.Show("Price not valid");
                 return;
             }
             
@@ -125,25 +125,27 @@ namespace CarRental.Windows
             {
                 return;
             }
-            var setRegistration = selectedCar.SetRegistration(Registration.Text);
+            if (Registration.Text != selectedCar.Registration)
+            {
+                MessageBox.Show("Registration cannot be changed");
+                Registration.Text = selectedCar.Registration;
+                return;
+            }
+            
             var setBrand = selectedCar.SetBrand(Brand.Text);
             var setModel = selectedCar.SetModel(Model.Text);
             var setPrice = selectedCar.SetPrice(Price.Text);
             var setAvailable = selectedCar.SetAvailable(Available.SelectedItem.ToString());
             
-            if (!setRegistration)
-            {
-                MessageBox.Show($"Registration is null");
-                return;
-            }
+            
             if (!setBrand)
             {
-                MessageBox.Show($"Brand is null");
+                MessageBox.Show($"Brand cannot be empty");
                 return;
             }
             if (!setModel)
             {
-                MessageBox.Show($"Model is null");
+                MessageBox.Show($"Model cannot be empty");
                 return;
             }
             if (!setPrice)

@@ -31,7 +31,7 @@ namespace CarRental.Repositories
 
         public void DeleteCustomer(int id)
         {
-            var customerFromDb = _dbContext.Customers.FirstOrDefault(x => x.Id == id);
+            var customerFromDb = _dbContext.Customers.FirstOrDefault(x => x.CustomerId == id);
 
             _dbContext.Remove(customerFromDb);
 
@@ -44,7 +44,7 @@ namespace CarRental.Repositories
                 .AsNoTracking()
                 .Select(customer =>
                     new CustomerBuilder()
-                        .SetId(customer.Id)
+                        .SetId(customer.CustomerId)
                         .SetName(customer.Name)
                         .SetLastName(customer.LastName)
                         .SetAddress(customer.Address)
@@ -53,15 +53,15 @@ namespace CarRental.Repositories
                 .ToList();
         }
 
-        public bool IsCustomerExist(string name, string lastName, int phone)
+        public bool IsCustomerExist(int phone)
         {
-            return _dbContext.Customers.Any(x => x.Name == name && x.LastName == lastName && x.Phone == phone);
+            return _dbContext.Customers.Any(x => x.Phone == phone);
 
         }
 
         public void UpdateCustomer(Customer selectedCustomer)
         {
-            var customerFromDb = _dbContext.Customers.FirstOrDefault(x => x.Id == selectedCustomer.Id);
+            var customerFromDb = _dbContext.Customers.FirstOrDefault(x => x.CustomerId == selectedCustomer.CustomerId);
 
             var customerDb = selectedCustomer.MapToDbModel();
 
@@ -76,9 +76,9 @@ namespace CarRental.Repositories
         {
             var customerDb = _dbContext.Customers
                             .AsNoTracking()
-                            .FirstOrDefault(customer => customer.Id == id);
+                            .FirstOrDefault(customer => customer.CustomerId == id);
             return new CustomerBuilder()
-                                    .SetId(customerDb.Id)
+                                    .SetId(customerDb.CustomerId)
                                     .SetName(customerDb.Name)
                                     .SetLastName(customerDb.LastName)
                                     .SetAddress(customerDb.Address)
@@ -88,7 +88,7 @@ namespace CarRental.Repositories
 
         public CustomerDb GetCustomerDb(int id)
         {
-            return _dbContext.Customers.AsNoTracking().FirstOrDefault(customer => customer.Id == id);
+            return _dbContext.Customers.AsNoTracking().FirstOrDefault(customer => customer.CustomerId == id);
         }
 
         

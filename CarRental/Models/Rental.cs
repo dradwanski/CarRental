@@ -16,7 +16,7 @@ namespace CarRental.Models
 {
     public class Rental
     {
-        public int Id { get; private set; }
+        public int RentalId { get; private set; }
         public string CarRegistration { get; private set; }
         public Customer Customer { get; private set; }
         public DateOnly RentalDate { get; private set; }
@@ -28,7 +28,7 @@ namespace CarRental.Models
 
         public Rental(RentalBuilder rentalBuilder)
         {
-            Id = rentalBuilder.Id;
+            RentalId = rentalBuilder.RentalId;
             CarRegistration = rentalBuilder.CarRegistration;
             Customer = rentalBuilder.Customer;
             RentalDate = rentalBuilder.RentalDate;
@@ -40,10 +40,10 @@ namespace CarRental.Models
         {
 
             var rentalDb = new RentalDb();
-            
 
-            rentalDb.Id = Id;
-            
+
+            rentalDb.Customer = Customer.MapToDbModel(); 
+            //rentalDb.CarRegistration.Registration = CarRegistration;
             rentalDb.RentalDate = RentalDate;
             rentalDb.ReturnDate = ReturnDate;
             rentalDb.Fees = Fees;
@@ -63,7 +63,10 @@ namespace CarRental.Models
         }
         public bool SetCustomer(Customer newCustomer)
         {
-            
+            if (newCustomer is null)
+            {
+                return false;
+            }
             Customer = newCustomer;
             return true;
 
@@ -71,7 +74,7 @@ namespace CarRental.Models
 
         public bool SetRentalDate(DateOnly newRentalDate)   
         {
-            if (newRentalDate > ReturnDate)
+            if (string.IsNullOrWhiteSpace(newRentalDate.ToString()))
             {
                 return false;
             }
@@ -81,7 +84,7 @@ namespace CarRental.Models
         }
         public bool SetReturnDate(DateOnly newReturnDate)
         {
-            if (newReturnDate < RentalDate)
+            if (string.IsNullOrWhiteSpace(newReturnDate.ToString()))
             {
                 return false;
             }

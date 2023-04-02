@@ -58,9 +58,9 @@ namespace CarRental.Windows
                 MessageBox.Show("Phone is not valid");
                 return;
             }
-            if (_customerRepository.IsCustomerExist(Cname.Text, CLastName.Text, phoneNumber))
+            if (_customerRepository.IsCustomerExist(phoneNumber))
             {
-                MessageBox.Show("Customer is exist");
+                MessageBox.Show("Phone Number is used");
                 return;
             }
 
@@ -124,7 +124,7 @@ namespace CarRental.Windows
             if (lastQuestion == MessageBoxResult.No)
                 return;
 
-            _customerRepository.DeleteCustomer(selectedCustomer.Id);
+            _customerRepository.DeleteCustomer(selectedCustomer.CustomerId);
 
             ShowCustomers();
         }

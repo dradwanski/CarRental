@@ -10,14 +10,14 @@ namespace CarRental.Builders
 {
     public class CustomerBuilder
     {
-        public int Id { get; private set; }
+        public int CustomerId { get; private set; }
         public string Name { get; private set; }
         public string LastName { get; private set; }
         public string Address { get; private set; }
         public int Phone { get; private set; }
         public CustomerBuilder SetId(int id)
         {
-            Id = id;
+            CustomerId = id;
             return this;
         }
         public CustomerBuilder SetName(string name)
@@ -47,7 +47,7 @@ namespace CarRental.Builders
         public Customer MapFromDb(CustomerDb customerDb)
         {
             return new CustomerBuilder()
-                .SetId(customerDb.Id)
+                .SetId(customerDb.CustomerId)
                 .SetName(customerDb.Name)
                 .SetLastName(customerDb.LastName)
                 .SetAddress(customerDb.Address)

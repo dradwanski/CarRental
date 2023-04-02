@@ -12,7 +12,7 @@ namespace CarRental.Repositories
     public interface ICustomerRepository
     {
         void AddCustomer(Customer customer);
-        bool IsCustomerExist(string name, string lastName, int phone);
+        bool IsCustomerExist(int phone);
         void DeleteCustomer(int id);
         List<Customer> GetCustomers();
         CustomerDb GetCustomerDb(int id);

@@ -31,7 +31,7 @@ namespace CarRental.Repositories
             return _dbContext.Users
                 .Select(user => 
                     new UserBuilder()
-                        .SetId(user.Id)
+                        .SetId(user.UserId)
                         .SetName(user.Name)
                         .SetLastName(user.LastName)
                         .SetEmail(user.Email)
@@ -53,7 +53,7 @@ namespace CarRental.Repositories
         public void UpdateUser(User user)
         {
 
-            var userFromDb = _dbContext.Users.FirstOrDefault(x => x.Id == user.Id);
+            var userFromDb = _dbContext.Users.FirstOrDefault(x => x.UserId == user.UserId);
 
             var userDb = user.MapToDbModel();
 
@@ -68,7 +68,7 @@ namespace CarRental.Repositories
 
         public void DeleteUser(int id)
         {
-            var userFromDb = _dbContext.Users.FirstOrDefault(x => x.Id == id);
+            var userFromDb = _dbContext.Users.FirstOrDefault(x => x.UserId == id);
 
             _dbContext.Remove(userFromDb);
 

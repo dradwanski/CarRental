@@ -21,12 +21,10 @@ namespace CarRental
     public partial class App : Application
     {
 
-        CarRentalDbContext _dbContext = new DbContextFactory().Create();
-
         protected override void OnStartup(StartupEventArgs e)
         {
-            var fasade = new DatabaseFacade(_dbContext);
-            fasade.EnsureCreated();
+            var _dbContext = new DbContextFactory().Create();
+            _dbContext.Database.EnsureCreated();
 
             var IsUserExist = _dbContext.Users.Any();
             if (!IsUserExist)
@@ -34,7 +32,9 @@ namespace CarRental
                 _dbContext.Add(new UserDb { 
                     Email = "admin@admin.com", 
                     Name="admin",
-                    Password="admin"});
+                    LastName = "admin",
+                    Password ="admin"});
+                _dbContext.SaveChanges();
             }
         }
 

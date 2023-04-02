@@ -157,7 +157,7 @@ namespace CarRental
             if (lastQuestion == MessageBoxResult.No)
                 return;
 
-            _userRepository.DeleteUser(selectedUser.Id);
+            _userRepository.DeleteUser(selectedUser.UserId);
 
             ShowUsers();
         }

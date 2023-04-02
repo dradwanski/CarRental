@@ -12,7 +12,7 @@ namespace CarRental.Builders
 {
     public class RentalBuilder
     {
-        public int Id { get; private set; }
+        public int RentalId { get; private set; }
         public string CarRegistration { get; private set; }
         public Customer Customer { get; private set; }
         public DateOnly RentalDate { get; private set; }
@@ -21,7 +21,7 @@ namespace CarRental.Builders
 
         public RentalBuilder SetId(int id)
         {
-            Id = id;
+            RentalId = id;
             return this;
         }
         public RentalBuilder SetCarRegistration(string carRegistration)

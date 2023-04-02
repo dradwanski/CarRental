@@ -20,9 +20,9 @@
         <Button Click="Back_Click" Content="BACK" Margin="88,343,1012,69" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White" Grid.Row="1"/>
         <Button Click="Clear_Click" Content="CLEAR" Margin="197,343,901,69" FontSize="18" FontFamily="Lucida Calligraphy" Background="SteelBlue" Foreground="White" Grid.Row="1" />
         <TextBlock HorizontalAlignment="Left" Height="38" Margin="26,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue" Grid.Row="1"><Run Language="pl-pl" Text="Registration"/></TextBlock>
-        <ComboBox Name ="CarRegistration" HorizontalAlignment="Left" Height="30" Margin="164,29,0,0"  VerticalAlignment="Top" Width="204" FontSize="16" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="38" Margin="26,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue" Grid.Row="1"><Run Language="pl-pl" Text="CustomerId"/></TextBlock>
-        <ComboBox Name ="CustomerId" HorizontalAlignment="Left" Height="30" Margin="164,73,0,0" VerticalAlignment="Top" Width="204" FontSize="16" Grid.Row="1"/>
+        <ComboBox SelectionChanged="Date_SelectedDateChanged" Name ="CarRegistration" HorizontalAlignment="Left" Height="30" Margin="164,29,0,0"  VerticalAlignment="Top" Width="204" FontSize="16" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="26,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue" Grid.Row="1"><Run Language="pl-pl" Text="Customer"/></TextBlock>
+        <ComboBox Name ="Customer" HorizontalAlignment="Left" Height="30" Margin="164,73,0,0" VerticalAlignment="Top" Width="204" FontSize="16" Grid.Row="1"/>
         <TextBlock HorizontalAlignment="Left" Height="38" Margin="26,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue" Grid.Row="1"><Run Language="pl-pl" Text="Rental Date"/></TextBlock>
         <DatePicker SelectedDateChanged="Date_SelectedDateChanged" Name ="RentalDate" HorizontalAlignment="Left" Height="30" Margin="164,117,0,0"  VerticalAlignment="Top" Width="204" FontSize="16" Grid.Row="1"/>
         <TextBlock HorizontalAlignment="Left" Height="38" Margin="704,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="22" Foreground="SteelBlue" RenderTransformOrigin="0.532,0.133"><Run Language="pl-pl" Text="Rental "/><Run Text="List"/></TextBlock>

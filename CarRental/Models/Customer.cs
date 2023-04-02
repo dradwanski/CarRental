@@ -10,7 +10,7 @@ namespace CarRental.Models
 {
     public class Customer
     {
-        public int Id { get; private set; }
+        public int CustomerId { get; private set; }
         public string Name { get; private set; }
         public string LastName { get; private set; }
         public string Address { get; private set; }
@@ -19,7 +19,7 @@ namespace CarRental.Models
 
         public Customer(CustomerBuilder customerBuilder)
         {
-            Id = customerBuilder.Id;
+            CustomerId = customerBuilder.CustomerId;
             Name = customerBuilder.Name;
             LastName = customerBuilder.LastName;
             Address = customerBuilder.Address;
@@ -31,7 +31,7 @@ namespace CarRental.Models
 
             var customerDb = new CustomerDb();
 
-            customerDb.Id = Id;
+            customerDb.CustomerId = CustomerId;
             customerDb.Name = Name;
             customerDb.LastName = LastName;
             customerDb.Address = Address;

@@ -46,18 +46,20 @@ namespace CarRental.Windows
 
         private void CheckAvaibility()
         {
+
             _rentalRepository.UpdateRentals();
 
         }
 
         private void Add_Rental_Click(object sender, RoutedEventArgs e)
         {
+
             if (string.IsNullOrWhiteSpace(CarRegistration.Text))
             {
                 MessageBox.Show("Registration cannot be empty");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(CustomerId.Text))
+            if (string.IsNullOrWhiteSpace(Customer.Text))
             {
                 MessageBox.Show("Customer cannot be empty");
                 return;
@@ -101,7 +103,7 @@ namespace CarRental.Windows
             var car = _carRepository.GetCar(CarRegistration.Text);
             var fees = days.Days * car.Price;
 
-            var customer = CustomerId.SelectedItem as Customer;
+            var customer = Customer.SelectedItem as Customer;
 
             var rental = new RentalBuilder()
                 .SetCarRegistration(CarRegistration.Text)
@@ -128,33 +130,25 @@ namespace CarRental.Windows
             {
                 return;
             }
-            if (string.IsNullOrWhiteSpace(CustomerId.Text) || CustomerId.Text != selectedRental.Customer.ToString())
-            {
-                MessageBox.Show("Customer cannot be change");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(RentalDate.Text))
-            {
-                MessageBox.Show("Rental date cannot be empty");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(ReturnDate.Text))
-            {
-                MessageBox.Show("Return date cannot be empty");
-                return;
-            }
+
             var setRegistration = selectedRental.SetRegistration(CarRegistration.Text);
-            
-            var setRentalDate = selectedRental.SetRentalDate(DateOnly.Parse(RentalDate.Text));
-            var setReturnDate = selectedRental.SetReturnDate(DateOnly.Parse(ReturnDate.Text));
+            var setCustomer = selectedRental.SetCustomer(Customer.SelectedItem as Customer);
+            var rentalDate = DateOnly.FromDateTime((DateTime)RentalDate.SelectedDate);
+            var returnDate = DateOnly.FromDateTime((DateTime)ReturnDate.SelectedDate);
+            var setRentalDate = selectedRental.SetRentalDate(rentalDate);
+            var setReturnDate = selectedRental.SetReturnDate(returnDate);
             var setFees = selectedRental.SetFees(Fees.Text);
 
             if (!setRegistration)
             {
-                MessageBox.Show($"Registration is null");
+                MessageBox.Show($"Registration cannot be empty");
                 return;
             }
-            
+            if (!setCustomer)
+            {
+                MessageBox.Show("Customer cannot be empty");
+                return;
+            }
             if (!setRentalDate)
             {
                 MessageBox.Show($"Rental date is not valid");
@@ -175,13 +169,11 @@ namespace CarRental.Windows
                 MessageBox.Show("Bad Request Date");
                 return;
             }
-
-            var rentalDate = DateOnly.FromDateTime((DateTime)RentalDate.SelectedDate);
-            var returnDate = DateOnly.FromDateTime((DateTime)ReturnDate.SelectedDate);
+            
 
             var rentals = _rentalRepository.GetRentalsByCar(CarRegistration.Text);
 
-            var ownedRental = rentals.FirstOrDefault(x => x.Id == selectedRental.Id);
+            var ownedRental = rentals.FirstOrDefault(x => x.RentalId == selectedRental.RentalId);
             rentals.Remove(ownedRental);
 
 
@@ -198,9 +190,6 @@ namespace CarRental.Windows
                         return;
                     }
                 }
-
-
-
 
             _rentalRepository.UpdateRental(selectedRental);
 
@@ -234,7 +223,7 @@ namespace CarRental.Windows
                 _carRepository.ChangeAvailable(selectedRental.CarRegistration, true);
             }
 
-            _rentalRepository.DeleteRental(selectedRental.Id);
+            _rentalRepository.DeleteRental(selectedRental.RentalId);
 
             ShowRentals();
         }
@@ -248,7 +237,7 @@ namespace CarRental.Windows
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             CarRegistration.SelectedIndex = 0;
-            CustomerId.SelectedIndex = 0;
+            Customer.SelectedIndex = 0;
             RentalDate.Text = string.Empty;
             ReturnDate.Text = string.Empty;
             Fees.Text = string.Empty;
@@ -264,7 +253,7 @@ namespace CarRental.Windows
             if (selectedRental is null)
             {
                 CarRegistration.SelectedIndex = 0;
-                CustomerId.SelectedIndex = 0;
+                Customer.SelectedIndex = 0;
                 RentalDate.Text = string.Empty;
                 ReturnDate.Text = string.Empty;
                 Fees.Text = string.Empty;
@@ -272,7 +261,7 @@ namespace CarRental.Windows
             }
 
             CarRegistration.Text = selectedRental.CarRegistration;
-            CustomerId.Text = selectedRental.CustomerName;
+            Customer.Text = selectedRental.CustomerName;
             RentalDate.Text = selectedRental.RentalDate.ToString();
             ReturnDate.Text = selectedRental.ReturnDate.ToString();
             Fees.Text = selectedRental.Fees.ToString();
@@ -294,13 +283,13 @@ namespace CarRental.Windows
         {
 
             var customers = _customerRepository.GetCustomers();
-            CustomerId.Items.Add(string.Empty);
+            Customer.Items.Add(string.Empty);
             foreach (var item in customers)
             {
-                CustomerId.Items.Add(item);
+                Customer.Items.Add(item);
 
             }
-            CustomerId.SelectedIndex = 0;
+            Customer.SelectedIndex = 0;
             
             
         }
@@ -323,33 +312,32 @@ namespace CarRental.Windows
         }
 
 
-
-        private void SetFees()
+        private void Date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-   
             var rentalDate = RentalDate.SelectedDate;
             var returnDate = ReturnDate.SelectedDate;
-            
 
-            if (rentalDate is null || returnDate is null || string.IsNullOrWhiteSpace(CarRegistration.Text))
+
+            if (rentalDate is null || returnDate is null || CarRegistration.SelectedIndex == 0)
             {
-                return; 
+                Fees.Text = "0";
+                return;
             }
-            if(rentalDate > returnDate)
+            if (rentalDate > returnDate)
             {
                 Fees.Text = "0";
                 return;
             }
             var days = returnDate.Value - rentalDate.Value;
-            var car = _carRepository.GetCar(CarRegistration.Text);
-            var fees = days.Days * car.Price;
+            if(days.Days == 0)
+            {
+                var car = _carRepository.GetCar(CarRegistration.SelectedValue.ToString());
+                Fees.Text = car.Price.ToString();
+                return;
+            }
+            var car2 = _carRepository.GetCar(CarRegistration.SelectedValue.ToString());
+            var fees = days.Days * car2.Price;
             Fees.Text = fees.ToString();
-
-        }
-
-        private void Date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SetFees();
         }
 
     }

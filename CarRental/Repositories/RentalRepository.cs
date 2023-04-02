@@ -11,13 +11,9 @@ namespace CarRental.Repositories
     public class RentalRepository : IRentalRepository
     {
         private readonly CarRentalDbContext _dbContext;
-        private readonly ICarRepository _carRepository;
-        private readonly ICustomerRepository _customerRepository;
         public RentalRepository()
         {
             _dbContext = new DbContextFactory().Create();
-            _carRepository = new CarRepositoryFactory().Create();
-            _customerRepository = new CustomerRepositoryFactory().Create();
         }
 
         public void AddRental(Rental rental)
@@ -25,14 +21,14 @@ namespace CarRental.Repositories
             _dbContext.ChangeTracker.Clear();
             var rentalDb = rental.MapToDbModel();
 
-            var car = _carRepository.GetCarDb(rental.CarRegistration);
-            var customer = _customerRepository.GetCustomerDb(rental.Customer.Id);
+            var car = _dbContext.Cars.FirstOrDefault(car => car.Registration == rental.CarRegistration);
+            var customer = _dbContext.Customers.FirstOrDefault(customer => customer.CustomerId == rental.Customer.CustomerId);
 
             rentalDb.Customer = customer;
             rentalDb.CarRegistration = car;
 
-            _dbContext.Attach(customer);
-            _dbContext.Attach(car);
+            //_dbContext.Attach(customer);
+            //_dbContext.Attach(car);
             _dbContext.Rentals.Add(rentalDb);
            
             _dbContext.SaveChanges();
@@ -40,7 +36,7 @@ namespace CarRental.Repositories
 
         public void DeleteRental(int id)
         {
-            var rentalFromDb = _dbContext.Rentals.FirstOrDefault(x => x.Id == id);
+            var rentalFromDb = _dbContext.Rentals.FirstOrDefault(x => x.RentalId == id);
 
             _dbContext.Remove(rentalFromDb);
 
@@ -55,7 +51,7 @@ namespace CarRental.Repositories
                 .Include(car => car.Customer)
                 .Select(rental =>
                     new RentalBuilder()
-                        .SetId(rental.Id)
+                        .SetId(rental.RentalId)
                         .SetCarRegistration(rental.CarRegistration.Registration)
                         .SetCustomer(rental.Customer)
                         .SetRentalDate(rental.RentalDate)
@@ -74,7 +70,7 @@ namespace CarRental.Repositories
                 .Where(rental => rental.CarRegistration.Registration == registration)
                 .Select(rental =>
                     new RentalBuilder()
-                        .SetId(rental.Id)
+                        .SetId(rental.RentalId)
                         .SetCarRegistration(rental.CarRegistration.Registration)
                         .SetCustomer(rental.Customer)
                         .SetRentalDate(rental.RentalDate)
@@ -87,12 +83,18 @@ namespace CarRental.Repositories
         public void UpdateRental(Rental selectedRental)
         {
 
-            _dbContext.ChangeTracker.Clear();
+            var rentalDb = _dbContext.Rentals.FirstOrDefault(rental => rental.RentalId == selectedRental.RentalId);
 
-            var rentalDb = selectedRental.MapToDbModel();
-            
-            var car = _carRepository.GetCarDb(selectedRental.CarRegistration);
+            var car = _dbContext.Cars.FirstOrDefault(car => car.Registration == selectedRental.CarRegistration);
+            var customer = _dbContext.Customers.FirstOrDefault(customer => customer.CustomerId == selectedRental.Customer.CustomerId);
+
             rentalDb.CarRegistration = car;
+            rentalDb.Customer = customer;
+            rentalDb.RentalDate = selectedRental.RentalDate;
+            rentalDb.ReturnDate = selectedRental.ReturnDate;
+            rentalDb.Fees = selectedRental.Fees;
+
+
             _dbContext.Update(rentalDb);
             _dbContext.SaveChanges();
 

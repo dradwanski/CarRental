@@ -10,7 +10,7 @@ namespace CarRental.Builders
 {
     public class UserBuilder
     {
-        public int Id { get; private set; }
+        public int UserId { get; private set; }
         public string Name { get; private set; }
         public string LastName { get; private set; }
         public string Email { get; private set; }
@@ -19,7 +19,7 @@ namespace CarRental.Builders
 
         public UserBuilder SetId(int id)
         {
-            Id = id;
+            UserId = id;
             return this;
         }
         public UserBuilder SetName(string name)

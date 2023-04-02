@@ -11,7 +11,7 @@ namespace CarRental.Models
 {
     public class User
     {
-        public int Id { get; private set; }
+        public int UserId { get; private set; }
         public string Name { get; private set; }
         public string LastName { get; private set; }
         public string Email { get; private set; }
@@ -19,7 +19,7 @@ namespace CarRental.Models
 
         public User(UserBuilder userBuilder)
         {
-            Id = userBuilder.Id;
+            UserId = userBuilder.UserId;
             Name = userBuilder.Name;
             LastName = userBuilder.LastName;
             Email = userBuilder.Email;
@@ -31,7 +31,7 @@ namespace CarRental.Models
 
             var userDb = new UserDb();
 
-            userDb.Id = Id;
+            userDb.UserId = UserId;
             userDb.Name = Name;
             userDb.LastName = LastName;
             userDb.Email = Email;
