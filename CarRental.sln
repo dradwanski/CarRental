@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental", "CarRental\CarRental.csproj", "{224C7138-AB71-4496-9F64-F0A157C21763}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRental", "CarRental\CarRental.csproj", "{224C7138-AB71-4496-9F64-F0A157C21763}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRental.Models", "CarRental.Models\CarRental.Models.csproj", "{BAFCE57D-CA3B-4221-9A0B-0C6CA8D8C4AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Database", "CarRental.Database\CarRental.Database.csproj", "{1828D39C-8BB7-4B16-AB1B-565326F6BCD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{224C7138-AB71-4496-9F64-F0A157C21763}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{224C7138-AB71-4496-9F64-F0A157C21763}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{224C7138-AB71-4496-9F64-F0A157C21763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAFCE57D-CA3B-4221-9A0B-0C6CA8D8C4AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAFCE57D-CA3B-4221-9A0B-0C6CA8D8C4AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAFCE57D-CA3B-4221-9A0B-0C6CA8D8C4AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAFCE57D-CA3B-4221-9A0B-0C6CA8D8C4AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1828D39C-8BB7-4B16-AB1B-565326F6BCD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1828D39C-8BB7-4B16-AB1B-565326F6BCD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1828D39C-8BB7-4B16-AB1B-565326F6BCD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1828D39C-8BB7-4B16-AB1B-565326F6BCD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

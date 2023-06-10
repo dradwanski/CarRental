@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CarRental.DbModel.CarDb">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAABAAAAAAAAAAAgAAQAFAAA=</HashCode>
+      <FileName>DbModel\CarDb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.DbModel.CustomerDb">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAABACAAAAIAAAAAg=</HashCode>
+      <FileName>DbModel\CustomerDb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.DbModel.RentalDb">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEBAABAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DbModel\RentalDb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.DbModel.UserDb">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAwAAAAAAAACAAAAAAAAAAg=</HashCode>
+      <FileName>DbModel\UserDb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.CarRentalDbContext">
+    <Position X="2.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAkAACACAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\CarRentalDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

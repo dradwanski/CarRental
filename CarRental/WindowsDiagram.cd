@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CarRental.Windows.CarsWindow" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="CarRental.Windows.CarsWindow.Availability" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Windows\CarsWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEAMAAAAAAAAEAABAAAAABEAAABAAAAIACACECACAAA=</HashCode>
+      <FileName>Windows\CarsWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CarRental.Windows.CustomersWindow" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKKAAAAAACAAAAAAAAAAABAAAAAAAAIAAAABCACAAA=</HashCode>
+      <FileName>Windows\CustomersWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CarRental.Windows.RentalWindow" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAMAAAIAAQAAAAAAAAAACACBAhAAAAIAAECBAACAAA=</HashCode>
+      <FileName>Windows\RentalWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CarRental.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Windows\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CarRental.PanelWindow" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAEAAAAAAAAAAEAAAABBAAAAAAAAAAAA=</HashCode>
+      <FileName>Windows\PanelWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CarRental.UsersWindow" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAgAAAABAAAAAAAAAAAAAAAAQBIAAAAIACCAAA=</HashCode>
+      <FileName>Windows\UsersWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="System.Windows.Window" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

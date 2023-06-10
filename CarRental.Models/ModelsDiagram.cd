@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CarRental.Factories.CarRepositoryFactory">
+    <Position X="1.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\CarRepositoryFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Factories.CustomerRepositoryFactory">
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\CustomerRepositoryFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Factories.DbContextFactory">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\DbContextFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Factories.Factory&lt;T&gt;">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\Factory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Factories.RentalRepositoryFactory">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\RentalRepositoryFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Factories.UserRepositoryFactory">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\UserRepositoryFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Models.Car">
+    <Position X="3.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAACQAAAAABAAQAAABAAAAAAAQBAAgAAAAFAAA=</HashCode>
+      <FileName>Models\Car.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Models.Customer">
+    <Position X="3.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAACAAAAAAACAEAAAAAAQAAAAAAhACAAAAYAAAAAg=</HashCode>
+      <FileName>Models\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Models.Rental">
+    <Position X="11.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAMBAABAAAAAAAAADAQQAAAAQBAAAAQAAAAAAQBAAAA=</HashCode>
+      <FileName>Models\Rental.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Models.User">
+    <Position X="11.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAKAAACAAAAAAAAwAAAAAAAACAAAAwAAAAAg=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Builders.CarBuilder">
+    <Position X="5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACQAAAAABAAQAAABAAAAAgAQBAAgAAAAFAAA=</HashCode>
+      <FileName>Builders\CarBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Builders.CustomerBuilder">
+    <Position X="5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAICAAAAAAAAQAAAAAghACCAAAYAAAAAg=</HashCode>
+      <FileName>Builders\CustomerBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Builders.RentalBuilder">
+    <Position X="13" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEBAABAAAAAIAAADAQQAAAAABAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders\RentalBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Builders.UserBuilder">
+    <Position X="13" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAKAAICAAAAAAAAwAAAAAgAACAAAAwAAAAAg=</HashCode>
+      <FileName>Builders\UserBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarRental.Repositories.CarRepository" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAhBAAABQAACAACAAAAAAACAAAAAAAAAEAAQABQAAA=</HashCode>
+      <FileName>Repositories\CarRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CarRental.Repositories.CustomerRepository" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAQAAAAAABAAAAAAAACAAAAAEAAAEAAABACA=</HashCode>
+      <FileName>Repositories\CustomerRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CarRental.Repositories.RentalRepository" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAIAAAAAAAIAAAAIAAAAAAAQAEAAAAAAAACAAA=</HashCode>
+      <FileName>Repositories\RentalRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CarRental.Repositories.UserRepository" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAABABAAAAAAAAAEAAAAAAAAAQAAAAAgAAAAAAAAAAE=</HashCode>
+      <FileName>Repositories\UserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="CarRental.Repositories.ICarRepository">
+    <Position X="8.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgBAAABQAACAACAAAAAAACAAAAAAAAAEAAQABQAAA=</HashCode>
+      <FileName>Repositories\ICarRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CarRental.Repositories.ICustomerRepository">
+    <Position X="8.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAABAAAAAAAACAAAAAEAAAEAAABACA=</HashCode>
+      <FileName>Repositories\ICustomerRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CarRental.Repositories.IRentalRepository">
+    <Position X="16.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAIAAAAIAAAAAAAQAEAAAAAAAACAAA=</HashCode>
+      <FileName>Repositories\IRentalRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CarRental.Repositories.IUserRepository">
+    <Position X="16.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAABAAAAAAAAAEAAAAAAAAAQAAAAAgAAAAAAAAAAE=</HashCode>
+      <FileName>Repositories\IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
